@@ -41,6 +41,7 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  background-position: center center;
 
   @media (max-width: 760px) and (orientation: landscape) {
     min-width: 100vh;
