@@ -1,13 +1,16 @@
 import React, {useState, useEffect, useCallback} from 'react'
-// import marked from 'marked'
+import Marked from 'marked'
 import { client } from '../../client'
 import Loader from '../Loader/Loader'
+import DOMPurify from 'dompurify'
 // import { BLOCKS, MARKS } from '@contentful/rich-text-types';
 // import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
 const getHTMLData = (rawData) => {
-  const htmlString = rawData // marked(rawData)
-  return htmlString
+  const htmlString =  rawData // marked(rawData)
+  const sanitizedHTMLString = DOMPurify.sanitize(htmlString)
+  // return htmlString
+  return sanitizedHTMLString
 }
 
 const About = () => {
@@ -60,7 +63,8 @@ const About = () => {
       <div className='row'>
         <div className='column'>
           <h2 className='titleText'>{aboutTitle}</h2>
-          <p>{aboutParagraph}</p>
+          {/* <p>{aboutParagraph}</p> */}
+          <div dangerouslySetInnerHTML={{ __html: aboutParagraph }} />
           <div><a href={aboutLink} className='btn'>{aboutButton}</a></div>
         </div>
         <div className='column'>          
