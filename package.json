@@ -1,5 +1,5 @@
 {
-  "homepage": "https://systempavers-reactjs-contentful.vercel.app/",
+  "homepage": ".",
   "name": "contentful",
   "version": "0.1.0",
   "private": true,
